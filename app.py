@@ -13,20 +13,20 @@ df = pd.read_csv('qa_dataset_with_embeddings.csv')
 # Convert string embeddings back to list format
 df['Question_Embedding'] = df['Question_Embedding'].apply(ast.literal_eval)
 
+
+def clear_text(): # this is the function you define (def is a Python keyword and is short for 'define')
+  st.session_state["text"] = ''  # add "text" as a key using the square brackets notation and set it to have the value '' 
+
 # Title
 st.title("💬 Smart FAQ Assistant")
 
 # Input field
-user_question = st.text_input("Ask a question:")
+user_question = st.text_input("Ask a question:", key="user_question")
 
 # Buttons
 col1, col2 = st.columns([1, 1])
 search_clicked = col1.button("🔍 Search")
-clear_clicked = col2.button("❌ Clear")
-
-# Clear input
-if clear_clicked:
-    st.session_state["user_question"] = ""  # optional: manually clear the input
+clear_clicked = col2.button("❌ Clear", on_click=clear_text)
 
 # Define embedding function
 def get_embedding(text, model="text-embedding-ada-002"):
