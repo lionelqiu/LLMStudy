@@ -54,5 +54,5 @@ if search_clicked and user_question.strip():
 
 # Optional FAQ section
 with st.expander("📚 Common Questions"):
-    for q in df['question']:
+    for q in df['Question']:
         st.markdown(f"- {q}")
