@@ -26,7 +26,7 @@ clear_clicked = col2.button("❌ Clear")
 
 # Clear input
 if clear_clicked:
-    st.experimental_rerun()
+    st.session_state["user_question"] = ""  # optional: manually clear the input
 
 # Define embedding function
 def get_embedding(text, model="text-embedding-ada-002"):
