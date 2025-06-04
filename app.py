@@ -4,6 +4,9 @@ from openai.embeddings_utils import cosine_similarity
 import ast
 import streamlit as st
 
+#api key
+openai.api_key = st.secrets["openai_key"]
+
 # Load dataset
 df = pd.read_csv('qa_dataset_with_embeddings.csv')
 
