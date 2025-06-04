@@ -41,7 +41,7 @@ if search_clicked and user_question.strip():
     similarity_threshold = 0.85
 
     if max_similarity >= similarity_threshold:
-        st.success(f"**Answer:** {df['answer'][most_similar_index]}")
+        st.success(f"**Answer:** {df['Answer'][most_similar_index]}")
         st.caption(f"🧠 Similarity Score: {max_similarity:.2f}")
 
         st.write("Was this helpful?")
